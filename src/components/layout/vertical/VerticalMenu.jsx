@@ -57,7 +57,16 @@ const VerticalMenu = ({ dictionary, scrollMenu }) => {
           <MenuItem href={`/${locale}/dashboards/crm`}>{dictionary['navigation'].crm}</MenuItem>
           <MenuItem href={`/${locale}/dashboards/analytics`}>{dictionary['navigation'].analytics}</MenuItem>
           <MenuItem href={`/${locale}/dashboards/ecommerce`}>{dictionary['navigation'].eCommerce}</MenuItem>
-          <MenuItem href={`/${locale}/dashboards/logistics`}>{dictionary['navigation'].logistics}</MenuItem>
+          <MenuItem href={`/${locale}/dashboards/logistics`}>Logistic</MenuItem>
+          <MenuItem href={`/${locale}/dashboards/academic`}>Academy</MenuItem>
+          <MenuItem href={`/${locale}/dashboards/reffrels`}>Referrals</MenuItem>
+          <MenuItem href={`/${locale}/dashboards/reviews`}>Reviews</MenuItem>
+          <MenuItem href={`/${locale}/dashboards/roles`}>Roles</MenuItem>
+          <MenuItem href={`/${locale}/dashboards/permission`}>Permission</MenuItem>
+          <MenuItem href={`/${locale}/dashboards/customers`}>Customers</MenuItem>
+          <MenuItem href={`/${locale}/dashboards/customersecurity`}>Customer Security</MenuItem>
+          <MenuItem href={`/${locale}/dashboards/customeraddressandbilling`}>Customer Address & Billing</MenuItem>
+          <MenuItem href={`/${locale}/dashboards/userProfile`}>User Profile</MenuItem>
         </SubMenu>
         <MenuSection label={dictionary['navigation'].appsPages}>
           <SubMenu label={dictionary['navigation'].rolesPermissions} icon={<i className='tabler-lock' />}>

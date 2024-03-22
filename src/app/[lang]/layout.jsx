@@ -5,7 +5,7 @@ import 'react-perfect-scrollbar/dist/css/styles.css'
 
 // Config Imports
 import { i18n } from '@configs/i18n'
-
+// import '../../../public/scss'
 // Style Imports
 import '@/app/globals.css'
 
