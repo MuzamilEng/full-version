@@ -20,6 +20,7 @@ import ApexCandlestickChart from '@views/charts/apex/ApexCandlestickChart'
 // Server Action Imports
 import { getServerMode } from '@core/utils/serverHelpers'
 
+
 const ApexCharts = () => {
   // Vars
   const serverMode = getServerMode()

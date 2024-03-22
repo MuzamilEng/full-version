@@ -8,15 +8,17 @@ import './libs/apex-charts/apex-charts.css'
 import './libs/datatables-bs5/datatables.bootstrap5.css'
 import './libs/datatables-responsive-bs5/responsive.bootstrap5.css'
 import './css/pages/app-logistics-dashboard.css'
-import './fonts/fontawesome.css'
-import "./fonts/tabler-icons.css"
-import './fonts/flag-icons.css'
-import { useEffect } from 'react'
-import Script from 'next/script'
+// import './fonts/fontawesome.css'
+// import "./fonts/tabler-icons.css"
+// import './fonts/flag-icons.css'
+
+import { useEffect, useState } from 'react'
+
+import {data} from './data'
+import {PieChart} from './PieChart'
+import { BarChart } from './PieChart'
 const Logistic = () => {
-  // useEffect(()=>{
-  //   let scriptFile = 
-  // },[])
+ 
   return (
     <div className="content-wrapper">
     {/* Content */}
@@ -268,7 +270,9 @@ const Logistic = () => {
                 <small className="text-muted">
                   Total number of deliveries 23.8k
                 </small>
+              
               </div>
+
               <div className="dropdown">
                 <button
                   type="button"
@@ -343,10 +347,15 @@ const Logistic = () => {
               </div>
             </div>
             <div className="card-body">
-              <div id="shipmentStatisticsChart" />
+              <div id="shipmentStatisticsChart">
+             
+                <BarChart />
+               
+              </div>
             </div>
           </div>
         </div>
+       
         {/*/ Shipment statistics */}
         {/* Delivery Performance */}
         <div className="col-lg-6 col-xxl-4 mb-4 order-2 order-xxl-2">
@@ -510,35 +519,12 @@ const Logistic = () => {
         <div className="col-md-6 col-xxl-4 mb-4 order-1 order-xxl-3">
           <div className="card h-100">
             <div className="card-header d-flex align-items-center justify-content-between">
-              <div className="card-title mb-0">
+              {/* <div className="card-title mb-0 d-flex justify-center flex-column">
                 <h5 className="m-0 me-2">Reasons for delivery exceptions</h5>
-              </div>
-              <div className="dropdown">
-                <button
-                  className="btn p-0"
-                  type="button"
-                  id="deliveryExceptions"
-                  data-bs-toggle="dropdown"
-                  aria-haspopup="true"
-                  aria-expanded="false"
-                >
-                  <i className="ti ti-dots-vertical" />
-                </button>
-                <div
-                  className="dropdown-menu dropdown-menu-end"
-                  aria-labelledby="deliveryExceptions"
-                >
-                  <a className="dropdown-item" href="javascript:void(0);">
-                    Select All
-                  </a>
-                  <a className="dropdown-item" href="javascript:void(0);">
-                    Refresh
-                  </a>
-                  <a className="dropdown-item" href="javascript:void(0);">
-                    Share
-                  </a>
-                </div>
-              </div>
+              </div> */}
+              <div  style={{marginTop:"60px"}}>
+             <PieChart data={data}  />
+      </div>
             </div>
             <div className="card-body">
               <div id="deliveryExceptionsChart" className="pt-md-4" />
@@ -914,21 +900,7 @@ const Logistic = () => {
     </div>
 
 
-    <Script src="./libs/moment/moment.js" strategy="afterInteractive" ></Script>
-<Script src="./libs/datatables-bs5/datatables-bootstrap5.js" strategy="afterInteractive" ></Script>
-<Script src="./libs/select2/select2.js" strategy="afterInteractive" ></Script>
-<Script src="./libs/@form-validation/popular.js" strategy="afterInteractive" ></Script>
-<Script src="./libs/@form-validation/bootstrap5.js" strategy="afterInteractive" ></Script>
-<Script src="./libs/@form-validation/auto-focus.js" strategy="afterInteractive" ></Script>
-<Script src="./libs/cleavejs/cleave.js" strategy="afterInteractive" ></Script>
-<Script src="./libs/cleavejs/cleave-phone.js" strategy="afterInteractive" ></Script>
-
-{/* <!-- Main JS --> */}
-<Script src="./js/main.js" strategy="afterInteractive" ></Script>
-
-{/* <!-- Page JS --> */}
-<Script src="./js/app-ecommerce-customer-all.js" strategy="afterInteractive" ></Script>
-<Script src='./t1.js'strategy='afterInteractive' ></Script>
+  
   </div>
 
   )
