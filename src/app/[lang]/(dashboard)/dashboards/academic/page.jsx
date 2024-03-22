@@ -11,6 +11,7 @@ import './css/pages/app-logistics-dashboard.css'
 import Script from 'next/script'
 // import '../../../../../../public/t1.js'
 // import { useEffect } from 'react'
+import {ApexBarChart, ApexChart} from './PieCharts'
 const page = () => {
   //   useEffect(() => {
   //     let scriptFile = document.createElement('script')
@@ -86,6 +87,8 @@ const page = () => {
                         </div>
                       </div>
                       <div id='leadsReportChart' />
+                      
+                      <ApexChart />
                     </div>
                   </div>
                 </div>
@@ -121,6 +124,7 @@ const page = () => {
                     <div className='card-body row g-3'>
                       <div className='col-md-6'>
                         <div id='horizontalBarChart' />
+                        <ApexBarChart />
                       </div>
                       <div className='col-md-6 d-flex justify-content-around align-items-center'>
                         <div>
@@ -146,6 +150,7 @@ const page = () => {
                             <span className='text-danger me-2'>
                               <i className='ti ti-circle-filled fs-6' />
                             </span>
+                           
                             <div>
                               <p className='mb-2'>React</p>
                               <h5>10%</h5>
@@ -590,33 +595,7 @@ const page = () => {
       {/* Drag Target Area To SlideIn Menu On Small Screens */}
       <div className='drag-target' />
 
-      <Script src="./libs/jquery/jquery.js"></Script>
-    <Script src="./libs/popper/popper.js"></Script>
-    <Script src="./js/bootstrap.js"></Script>
-    <Script src="./libs/node-waves/node-waves.js"></Script>
-    <Script src="./libs/perfect-scrollbar/perfect-scrollbar.js"></Script>
-    <Script src="./libs/hammer/hammer.js"></Script>
-    <Script src="./libs/i18n/i18n.js"></Script>
-    <Script src="./libs/typeahead-js/typeahead.js"></Script>
-    <Script src="./js/menu.js"></Script>
-
-    {/* <!-- endbuild --> */}
-
-    {/* <!-- Vendors JS -->/ */}
-    <Script src="./libs/moment/moment.js"></Script>
-    <Script src="./libs/datatables-bs5/datatables-bootstrap5.js"></Script>
-    <Script src="./libs/select2/select2.js"></Script>
-    <Script src="./libs/@form-validation/popular.js"></Script>
-    <Script src="./libs/@form-validation/bootstrap5.js"></Script>
-    <Script src="./libs/@form-validation/auto-focus.js"></Script>
-    <Script src="./libs/cleavejs/cleave.js"></Script>
-    <Script src="./libs/cleavejs/cleave-phone.js"></Script>
-
-    {/* <!-- Main JS --> */}
-    <Script src="./js/main.js"></Script>
-
-    {/* <!-- Page JS --> */}
-    <Script src="./js/app-ecommerce-customer-all.js"></Script>
+      
     </div>
   )
 }

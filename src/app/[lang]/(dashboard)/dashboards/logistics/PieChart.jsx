@@ -1,10 +1,12 @@
 import React from 'react';
 import 'chart.js/auto';
 import { Doughnut } from 'react-chartjs-2';
-import { Bar, Line } from 'react-chartjs-2';
+// import { Bar, Line } from 'react-chartjs-2';
 import {shipmentData} from './data'
 import { data } from './data'; // Import the provided data
-import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, Rectangle } from 'recharts';
+import Chart from 'react-apexcharts';
+import  { useState } from 'react';
+import ReactApexChart from 'react-apexcharts';
 export const PieChart = () => {
   // Extracting labels and chart data from the provided data
   const categories = Object.keys(data[0]); // Extracting category names
@@ -81,28 +83,77 @@ export const PieChart = () => {
 };
 
 
-export  const BarChart = () => {
+
+
+
+// Assuming shipmentData is imported
+
+export const BarChart = () => {
+  const [options] = useState({
+    chart: {
+      height: 350,
+      type: 'line',
+      stacked: false
+    },
+    stroke: {
+      width: [0, 4]
+    },
+    title: {
+      text: 'Monthly Shipments and Deliveries'
+    },
+    dataLabels: {
+      enabled: false,
+      enabledOnSeries: [1]
+    },
+    labels: shipmentData.map(item => item.month),
+    xaxis: {
+      type: 'category'
+    },
+    yaxis: [
+      {
+        title: {
+          text: 'Shipments'
+        }
+      },
+      {
+        opposite: true,
+        title: {
+          text: 'Deliveries'
+        }
+      }
+    ],
+    tooltip: {
+      shared: true,
+      intersect: false,
+      y: {
+        formatter: function (val, { seriesIndex }) {
+          return seriesIndex === 0 ? val + ' shipments' : val + ' deliveries';
+        }
+      }
+    },
+    colors: ['#ff9f43', '#007bff'], // Set colors for shipments and deliveries series
+    plotOptions: {
+      bar: {
+        columnWidth: '50%',
+        clip: true // Clip the edges of the bars
+      }
+    }
+  });
+
+  const [series] = useState([
+    {
+      name: 'Shipments',
+      type: 'column',
+      data: shipmentData.map(item => item.shipments)
+    },
+    {
+      name: 'Deliveries',
+      type: 'line',
+      data: shipmentData.map(item => item.deliveries)
+    }
+  ]);
+
   return (
-    <ResponsiveContainer width="100%" height="100%">
-      <BarChart
-        width={500}
-        height={300}
-        data={data}
-        margin={{
-          top: 5,
-          right: 30,
-          left: 20,
-          bottom: 5,
-        }}
-      >
-        <CartesianGrid strokeDasharray="3 3" />
-        <XAxis dataKey="name" />
-        <YAxis />
-        <Tooltip />
-        <Legend />
-        <Bar dataKey="pv" fill="#8884d8" shape={<Rectangle fill="pink" stroke="blue" />} />
-        <Bar dataKey="uv" fill="#82ca9d" shape={<Rectangle fill="gold" stroke="purple" />} />
-      </BarChart>
-    </ResponsiveContainer>
+    <Chart options={options} series={series} type="line" height={350} />
   );
 };

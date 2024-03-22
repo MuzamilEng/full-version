@@ -12,11 +12,12 @@ import './css/pages/app-logistics-dashboard.css'
 // import "./fonts/tabler-icons.css"
 // import './fonts/flag-icons.css'
 
-import { useEffect, useState } from 'react'
 
 import {data} from './data'
+
 import {PieChart} from './PieChart'
 import { BarChart } from './PieChart'
+
 const Logistic = () => {
  
   return (
@@ -349,8 +350,7 @@ const Logistic = () => {
             <div className="card-body">
               <div id="shipmentStatisticsChart">
              
-                <BarChart />
-               
+               <BarChart />
               </div>
             </div>
           </div>
